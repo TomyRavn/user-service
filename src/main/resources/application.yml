@@ -16,6 +16,8 @@ spring:
     username: sa
   jpa:
     generate-ddl: true
+  main:
+    allow-bean-definition-overriding: true
 
 
 eureka:
@@ -29,3 +31,7 @@ eureka:
 
 greeting:
   message: Welcome to the Simple E-commerce.
+
+logging:
+  level:
+    com.example.userservice: DEBUG

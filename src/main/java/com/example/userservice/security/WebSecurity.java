@@ -27,7 +27,6 @@ public class WebSecurity {
 
     private static final String[] WHITE_LIST = {
             "/users/**",
-            "/",
             "/**"
     };
 
@@ -38,6 +37,7 @@ public class WebSecurity {
         http.authorizeHttpRequests(authorize -> {
                     try {
                         authorize
+                                .requestMatchers("/actuator/**").permitAll()
                                 .requestMatchers(WHITE_LIST).permitAll()
                                 .requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers(new IpAddressMatcher("127.0.0.1")).permitAll()
